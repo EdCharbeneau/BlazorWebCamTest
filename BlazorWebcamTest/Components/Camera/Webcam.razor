@@ -1,0 +1,9 @@
+﻿<div class="@CssCameraWrapper">
+    <video @ref="VideoElement">Video stream not available.</video>
+    @if (errorMessage != null)
+    {
+        <div class="alert alert-danger">
+            @errorMessage
+        </div>
+    }
+</div>

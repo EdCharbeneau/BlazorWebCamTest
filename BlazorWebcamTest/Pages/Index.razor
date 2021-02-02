@@ -1,0 +1,35 @@
+﻿@using BlazorWebcamTest.Components.Camera
+@page "/"
+
+<!-- Magic and ponies -->
+<Webcam @ref="Camera"/>
+
+<!-- I'm using a button here, but we can trigger this however we want -->
+<button @onclick="GetSnap">Snap</button>
+
+<!-- We can do all sorts of fun with this image -->
+@if (data != null)
+{
+    <img src="@data" />
+}
+
+@code {
+
+    // This is our JavaScript wrapper, shhh... don't tell it's magic JS module stuff
+    Webcam Camera { get; set; }
+
+    // The data we're going to go get from our web cam
+    string data;
+
+    // The Action we can hook into for pictures
+    async Task GetSnap()
+    {
+        data = await Camera.GetSnapshot();
+        // push this data to Azure Cognitive Services
+        // do wild and crazy stuff
+
+        // Note, we might need this to grab just the binary data
+        //var base64Data = Regex.Match(stringName, @"data:image/(?<type>.+?),(?<data>.+)").Groups["data"].Value;
+        //var binData = Convert.FromBase64String(base64Data);
+    }
+}
