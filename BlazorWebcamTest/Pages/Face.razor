@@ -1,0 +1,31 @@
+﻿@using BlazorWebcamTest.Components.Camera
+
+@page "/"
+<!-- Magic and ponies -->
+<Webcam @ref="Camera" />
+
+<!-- I'm using a button here, but we can trigger this however we want -->
+<button @onclick="GetSnap">Snap</button>
+
+<!-- We can do all sorts of fun with this image -->
+@if (data != null)
+{
+    <img src="@data" />
+}
+
+@if (faces != null)
+{
+    @foreach (var item in faces)
+    {
+        <li>Anger - @item.FaceAttributes.Emotion.Anger.ToString("p")</li>
+        <li>Contempt - @item.FaceAttributes.Emotion.Contempt.ToString("p")</li>
+        <li>Disgust - @item.FaceAttributes.Emotion.Disgust.ToString("p")</li>
+        <li>Fear - @item.FaceAttributes.Emotion.Fear.ToString("p")</li>
+        <li>Happiness - @item.FaceAttributes.Emotion.Happiness.ToString("p")</li>
+        <li>Neutral - @item.FaceAttributes.Emotion.Neutral.ToString("p")</li>
+        <li>Sadness - @item.FaceAttributes.Emotion.Sadness.ToString("p")</li>
+        <li>Surprise -  @item.FaceAttributes.Emotion.Surprise.ToString("p")</li>}
+
+}
+
+@error
