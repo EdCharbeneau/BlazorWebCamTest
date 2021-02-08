@@ -22,7 +22,7 @@ namespace BlazorWebcamTest.Pages
             data = await Camera.GetSnapshot();
             faces = await UploadAndDetectFaces(data);
         }
-        private readonly IFaceClient faceClient = new FaceClient(new ApiKeyServiceClientCredentials("key")) { Endpoint = "uri" };
+        private readonly IFaceClient faceClient = new FaceClient(new ApiKeyServiceClientCredentials("7b29cd53c8f04812a018d2bbe7d1a182")) { Endpoint = "https://inyoface.cognitiveservices.azure.com/" };
 
         // The list of descriptions for the detected faces.
         private string[] faceDescriptions;
