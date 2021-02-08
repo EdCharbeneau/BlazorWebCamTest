@@ -1,22 +1,80 @@
 ﻿@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@700&display=swap');
+@import url('reset.css');
 
-html, body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+:root {
+    --main-dark-color: #313a8e;
+    --main-light-color: #c6d2ec;
+    --white: #f2f2f2;
+}
+
+html {
+    font-family: 'Source Sans Pro', sans-serif;
+    background-color: var(--main-light-color);
+    color: var(--main-dark-color);
+}
+
+body {
+    font-size: 18px;
 }
 
 a, .btn-link {
-    color: #0366d6;
+    color: var(--main-dark-color);
 }
 
-.btn-primary {
-    color: #fff;
-    background-color: #1b6ec2;
-    border-color: #1861ac;
-}
-
+/* Alyssa's Styles, Do they go here? */
 .content {
-    padding-top: 1.1rem;
+    margin: 50px;
 }
+
+button {
+    width: 100%;
+    background-color: var(--white);
+    color: var(--main-light-color);
+    padding: 4px 8px;
+    font-weight: 700;
+}
+
+button.cta {
+    background-color: var(--main-dark-color);
+    color: var(--white);
+    padding: 4px 8px;
+    border: 4px solid var(--white);
+    text-transform: uppercase;
+    /* width: auto; */
+}
+
+button.cta:hover {
+    background-color: var(--main-light-color);
+    color: var(--main-dark-color);
+    transition: all .2s ease-in;
+}
+
+a {
+    color: var(--white);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--main-light-color);
+}
+
+.content > div {
+    max-width: 500px;
+    overflow: hidden;
+}
+
+.results-wrapper {
+    display: flex;
+}
+
+.snapped-image {
+    max-width: 400px;
+}
+
+/* TODO: ASK ED ABOUT VARIABLE FILE */
+/* TODO: ASK ED ABOUT SASS, WHY DO YOU HATE ME */
+/* TODO: ASK ED ABOUT RESET FILE */
 
 .valid.modified:not([type=checkbox]) {
     outline: 1px solid #26b050;
@@ -42,9 +100,9 @@ a, .btn-link {
     z-index: 1000;
 }
 
-    #blazor-error-ui .dismiss {
-        cursor: pointer;
-        position: absolute;
-        right: 0.75rem;
-        top: 0.5rem;
-    }
+#blazor-error-ui .dismiss {
+    cursor: pointer;
+    position: absolute;
+    right: 0.75rem;
+    top: 0.5rem;
+}
