@@ -1,4 +1,5 @@
-﻿using Microsoft.Azure.CognitiveServices.Vision.Face;
+﻿using Microsoft.AspNetCore.Components;
+using Microsoft.Azure.CognitiveServices.Vision.Face;
 using Microsoft.Azure.CognitiveServices.Vision.Face.Models;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,7 @@ namespace BlazorWebcamTest.Pages
 {
     public partial class Face
     {
+        [Inject] AzureSettings Settings { get; set; }
         Webcam Camera { get; set; }
         string data;
         IList<DetectedFace> faces;
@@ -22,24 +24,18 @@ namespace BlazorWebcamTest.Pages
             data = await Camera.GetSnapshot();
             faces = await UploadAndDetectFaces(data);
         }
-        private readonly IFaceClient faceClient = new FaceClient(new ApiKeyServiceClientCredentials("7b29cd53c8f04812a018d2bbe7d1a182")) { Endpoint = "https://inyoface.cognitiveservices.azure.com/" };
 
-        // The list of descriptions for the detected faces.
-        //private string[] faceDescriptions;
-
-        // The resize factor for the displayed image.
-        //private double resizeFactor;
-
-        // Uploads the image file and calls DetectWithStreamAsync.
         private async Task<IList<DetectedFace>> UploadAndDetectFaces(string base64encodedstring)
         {
+            IFaceClient faceClient = new FaceClient(new ApiKeyServiceClientCredentials(Settings.Key)) { Endpoint = Settings.Uri };
+
             // The list of Face attributes to return.
             IList<FaceAttributeType?> faceAttributes =
                 new FaceAttributeType?[]
                 {
-            FaceAttributeType.Gender, FaceAttributeType.Age,
-            FaceAttributeType.Smile, FaceAttributeType.Emotion,
-            FaceAttributeType.Glasses, FaceAttributeType.Hair
+                    FaceAttributeType.Gender, FaceAttributeType.Age,
+                    FaceAttributeType.Smile, FaceAttributeType.Emotion,
+                    FaceAttributeType.Glasses, FaceAttributeType.Hair
                 };
 
             // Call the Face API.
@@ -56,14 +52,13 @@ namespace BlazorWebcamTest.Pages
             // Catch and display Face API errors.
             catch (APIErrorException f)
             {
-                //MessageBox.Show(f.Message);
+                error = f.Message;
                 return new List<DetectedFace>();
             }
             // Catch and display all other errors.
             catch (Exception e)
             {
                 error = e.Message;
-                //MessageBox.Show(e.Message, "Error");
                 return new List<DetectedFace>();
             }
         }

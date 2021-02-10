@@ -16,8 +16,12 @@ namespace BlazorWebcamTest
         {
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
             builder.RootComponents.Add<App>("#app");
-builder.Services.AddTelerikBlazor();
-
+            AzureSettings settings = new() {
+                Key = builder.Configuration["AzureFaceKey"],
+                Uri = builder.Configuration["AzureFaceUri"]
+            };
+            builder.Services.AddSingleton(s => settings);
+            builder.Services.AddTelerikBlazor();
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
             await builder.Build().RunAsync();
         }

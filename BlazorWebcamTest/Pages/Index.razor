@@ -1,5 +1,6 @@
 ﻿@page "/noFace"
 @using Telerik.Blazor
+@inject Settings s
 
 <TelerikChart>
     <ChartTooltip Visible="true"></ChartTooltip>
@@ -18,6 +19,10 @@
     </ChartCategoryAxes>
 
 </TelerikChart>
+<div>
+    Config 2: @s.Uri
+</div>
+
 
 @code {
     public class ModelData
