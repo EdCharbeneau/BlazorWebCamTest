@@ -1,0 +1,117 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@700&display=swap');
+@import "reset";
+
+:root {
+    --main-dark-color: #313a8e;
+    --main-light-color: #c6d2ec;
+    --white: #f2f2f2;
+}
+
+html {
+    font-family: 'Source Sans Pro', sans-serif;
+    background-color: var(--main-light-color);
+    color: var(--main-dark-color);
+}
+
+body {
+    font-size: 18px;
+}
+
+a, .btn-link {
+    color: var(--main-dark-color);
+}
+
+/* Alyssa's Styles, Do they go here? */
+.content {
+    margin: 50px;
+}
+
+button {
+    width: 100%;
+    background-color: var(--white);
+    color: var(--main-light-color);
+    padding: 4px 8px;
+    font-weight: 700;
+}
+
+button.cta {
+    background-color: var(--main-dark-color);
+    color: var(--white);
+    padding: 4px 8px;
+    border: 4px solid var(--white);
+    text-transform: uppercase;
+    /* width: auto; */
+}
+
+button.cta:hover {
+    background-color: var(--main-light-color);
+    color: var(--main-dark-color);
+    transition: all .2s ease-in;
+}
+
+a {
+    color: var(--white);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--main-light-color);
+}
+
+.content > div {
+    max-width: 500px;
+    overflow: hidden;
+}
+
+.results-wrapper {
+    display: flex;
+}
+
+.snapped-image {
+    max-width: 400px;
+}
+
+/* TODO: ASK ED ABOUT VARIABLE FILE */
+/* TODO: ASK ED ABOUT SASS, WHY DO YOU HATE ME */
+/* TODO: ASK ED ABOUT RESET FILE */
+
+.valid.modified:not([type=checkbox]) {
+    outline: 1px solid #26b050;
+}
+
+.invalid {
+    outline: 1px solid red;
+}
+
+.validation-message {
+    color: red;
+}
+
+#blazor-error-ui {
+    background: lightyellow;
+    bottom: 0;
+    box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.2);
+    display: none;
+    left: 0;
+    padding: 0.6rem 1.25rem 0.7rem 1.25rem;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+#blazor-error-ui .dismiss {
+    cursor: pointer;
+    position: absolute;
+    right: 0.75rem;
+    top: 0.5rem;
+}
+
+/* REfactor */
+.content .camera video {
+    width: 100%;
+}
+
+.content button {
+    width: 100%;
+    /*padding: 500px;*/
+}

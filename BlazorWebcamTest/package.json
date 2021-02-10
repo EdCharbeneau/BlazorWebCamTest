@@ -1,0 +1,15 @@
+{
+  "version": "1.0.0",
+  "name": "asp.net",
+  "private": true,
+  "devDependencies": {
+    "sass": "1.32.7",
+    "@progress/kendo-theme-nouvelle": "0.3.0-dev.ffad5ad2"
+  },
+  "scripts": {
+    "build": "npm run sass && npm run dotnet:publish",
+    "sass": "npx sass ./Themes/app.scss ./wwwroot/css/app.css",
+    "sass:watch": "npx sass --watch ./Themes/app.scss ./wwwroot/css/app.css",
+    "dotnet:watch": "dotnet watch run"
+  }
+}
