@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Telerik.Blazor.Components;
 using WebcamComponent;
 
 namespace BlazorWebcamTest.Pages
@@ -14,10 +15,11 @@ namespace BlazorWebcamTest.Pages
     public partial class Face
     {
         [Inject] AzureSettings Settings { get; set; }
+        TelerikNotification ErrorNotification { get; set; }
+        bool DevMode = true;
         Webcam Camera { get; set; }
         string data;
         IList<DetectedFace> faces;
-        string error;
 
         async Task GetSnap()
         {
@@ -52,13 +54,29 @@ namespace BlazorWebcamTest.Pages
             // Catch and display Face API errors.
             catch (APIErrorException f)
             {
-                error = f.Message;
+                ErrorNotification.Show(new()
+                {
+                    Closable = true,
+                    Text = f.Message,
+                    ThemeColor = Telerik.Blazor.ThemeColors.Error,
+                    Icon = "exclamation-circle",
+                    ShowIcon = true,
+                    CloseAfter = 0
+                });
                 return new List<DetectedFace>();
             }
             // Catch and display all other errors.
             catch (Exception e)
             {
-                error = e.Message;
+                ErrorNotification.Show(new()
+                {
+                    Closable = true,
+                    Text = e.Message,
+                    ThemeColor = Telerik.Blazor.ThemeColors.Error,
+                    Icon = "exclamation-circle",
+                    ShowIcon = true,
+                    CloseAfter = 0
+                });
                 return new List<DetectedFace>();
             }
         }
