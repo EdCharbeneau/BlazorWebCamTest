@@ -1,6 +1,6 @@
 ﻿<div class="@CssCameraWrapper">
     <video @ref="VideoElement">Video stream not available.</video>
-    @if (errorMessage != null)
+    @if (!String.IsNullOrWhiteSpace(errorMessage))
     {
         <div class="alert alert-danger">
             @errorMessage

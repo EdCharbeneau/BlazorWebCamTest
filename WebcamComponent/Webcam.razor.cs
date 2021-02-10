@@ -1,16 +1,23 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
-namespace BlazorWebcamTest.Components.Camera
+namespace WebcamComponent
 {
     public partial class Webcam
     {
-        const string JsModulePath = "./js/webcam.js";
+        const string JsModulePath = "./_content/WebcamComponent/webcam.js";
+
         [Inject] IJSRuntime JsRuntime { get; set; }
+
         Lazy<Task<IJSObjectReference>> moduleTask;
+
         public ElementReference VideoElement { get; set; }
+
         string errorMessage = null;
 
         bool isCameraStreaming = false;
@@ -56,5 +63,6 @@ namespace BlazorWebcamTest.Components.Camera
                 await module.DisposeAsync();
             }
         }
+
     }
 }

@@ -106,3 +106,13 @@ a:hover {
     right: 0.75rem;
     top: 0.5rem;
 }
+
+/* REfactor */
+.content .camera video {
+    width: 100%;
+}
+
+.content button {
+    width: 100%;
+    /*padding: 500px;*/
+}

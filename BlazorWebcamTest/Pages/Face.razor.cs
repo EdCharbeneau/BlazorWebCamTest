@@ -1,5 +1,4 @@
-﻿using BlazorWebcamTest.Components.Camera;
-using Microsoft.Azure.CognitiveServices.Vision.Face;
+﻿using Microsoft.Azure.CognitiveServices.Vision.Face;
 using Microsoft.Azure.CognitiveServices.Vision.Face.Models;
 using System;
 using System.Collections.Generic;
@@ -7,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
+using WebcamComponent;
 
 namespace BlazorWebcamTest.Pages
 {
@@ -25,10 +25,10 @@ namespace BlazorWebcamTest.Pages
         private readonly IFaceClient faceClient = new FaceClient(new ApiKeyServiceClientCredentials("7b29cd53c8f04812a018d2bbe7d1a182")) { Endpoint = "https://inyoface.cognitiveservices.azure.com/" };
 
         // The list of descriptions for the detected faces.
-        private string[] faceDescriptions;
+        //private string[] faceDescriptions;
 
         // The resize factor for the displayed image.
-        private double resizeFactor;
+        //private double resizeFactor;
 
         // Uploads the image file and calls DetectWithStreamAsync.
         private async Task<IList<DetectedFace>> UploadAndDetectFaces(string base64encodedstring)
