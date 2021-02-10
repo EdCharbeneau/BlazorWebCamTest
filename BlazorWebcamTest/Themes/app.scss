@@ -1,6 +1,10 @@
 ﻿@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@700&display=swap');
 @import "reset";
-
+@import "variables";
+@import "navmenu";
+@import "mainLayout";
+@import "../node_modules/@progress/kendo-theme-material/dist/all.scss";
+    
 :root {
     --main-dark-color: #313a8e;
     --main-light-color: #c6d2ec;
@@ -26,7 +30,7 @@ a, .btn-link {
     margin: 50px;
 }
 
-button {
+/*button {
     width: 100%;
     background-color: var(--white);
     color: var(--main-light-color);
@@ -39,15 +43,15 @@ button.cta {
     color: var(--white);
     padding: 4px 8px;
     border: 4px solid var(--white);
-    text-transform: uppercase;
+    text-transform: uppercase;*/
     /* width: auto; */
-}
+/*}
 
 button.cta:hover {
     background-color: var(--main-light-color);
     color: var(--main-dark-color);
     transition: all .2s ease-in;
-}
+}*/
 
 a {
     color: var(--white);
@@ -56,11 +60,6 @@ a {
 
 a:hover {
     color: var(--main-light-color);
-}
-
-.content > div {
-    max-width: 500px;
-    overflow: hidden;
 }
 
 .results-wrapper {
@@ -74,7 +73,7 @@ a:hover {
 /* TODO: ASK ED ABOUT VARIABLE FILE */
 /* TODO: ASK ED ABOUT SASS, WHY DO YOU HATE ME */
 /* TODO: ASK ED ABOUT RESET FILE */
-
+ 
 .valid.modified:not([type=checkbox]) {
     outline: 1px solid #26b050;
 }
