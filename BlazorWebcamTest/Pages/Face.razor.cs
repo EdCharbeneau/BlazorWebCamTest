@@ -4,9 +4,6 @@ using Microsoft.Azure.CognitiveServices.Vision.Face.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Net.Http;
-using System.Threading;
 using System.Threading.Tasks;
 using Telerik.Blazor.Components;
 using WebcamComponent;
@@ -101,29 +98,6 @@ namespace BlazorWebcamTest.Pages
             }
             WindowVisible = false;
         }
-
-        //TimeSpan timeSpan;
-
-        //[Parameter] public DateTime CountdownTo { get; set; } = DateTime.Now.AddSeconds(30);
-
-        //void StartTimer()
-        //{
-        //    myTimer = new Timer(new TimerCallback(_ =>
-        //    {
-        //        timeSpan = CountdownTo - DateTime.Now;
-        //        if (timeSpan.TotalSeconds == 0)
-        //        {
-        //            StopTimer();
-        //        }
-        //        InvokeAsync(StateHasChanged);
-        //    }), null, 1000, 1000);
-        //}
-
-        //void StopTimer()
-        //{
-        //    myTimer.Dispose();
-        //}
-
 
     }
 }
