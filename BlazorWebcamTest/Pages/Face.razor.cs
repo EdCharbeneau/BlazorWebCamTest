@@ -75,6 +75,8 @@ namespace BlazorWebcamTest.Pages
                     FaceAttributeType.Gender, FaceAttributeType.Age,
                     FaceAttributeType.Smile, FaceAttributeType.Emotion,
                     FaceAttributeType.Glasses, FaceAttributeType.Hair,
+                    FaceAttributeType.FacialHair, FaceAttributeType.HeadPose,
+                    FaceAttributeType.Makeup, FaceAttributeType.Accessories
                 };
 
             // Call the Face API.

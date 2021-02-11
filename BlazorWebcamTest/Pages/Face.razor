@@ -27,6 +27,18 @@
                 @foreach (var itemData in faces)
                 {
                     var item = itemData.DetectedFace;
+                    <li>@item.FaceAttributes.Age</li>
+                    <li>@item.FaceAttributes.Hair.Bald</li>
+                    <li>@item.FaceAttributes.Hair.HairColor[0].Color</li>
+                    <li>@item.FaceAttributes.Hair.Invisible</li>
+                    <li>@item.FaceAttributes.Makeup.EyeMakeup</li>
+                    <li>@item.FaceAttributes.Makeup.LipMakeup</li>
+                    <li>@item.FaceAttributes.FacialHair.Beard</li>
+                    <li>@item.FaceRectangle.Height</li>
+                    <li>@item.FaceRectangle.Width</li>
+                    <li>@item.FaceRectangle.Top</li>
+                    <li>@item.FaceRectangle.Left</li>
+
                     <li><img src="@itemData.Data" /></li>
                     <li>Anger - @item.FaceAttributes.Emotion.Anger.ToString("p")</li>
                     <li>Contempt - @item.FaceAttributes.Emotion.Contempt.ToString("p")</li>
