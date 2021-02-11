@@ -32641,4 +32641,9 @@ a:hover {
   /*padding: 500px;*/
 }
 
+.k-content.k-window-content.k-dialog-content {
+  display: flex;
+  justify-content: center;
+}
+
 /*# sourceMappingURL=app.css.map */

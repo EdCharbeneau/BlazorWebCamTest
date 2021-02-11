@@ -1,9 +1,17 @@
 ﻿@page "/"
+
+<TelerikWindow Modal="true" Visible="WindowVisible" Width="100vw" Height="100vh">
+    <WindowContent>
+        <img src="/img/@(index).jpg" />
+    </WindowContent>
+</TelerikWindow>
+
 <div class="camera-wrapper">
     <Webcam @ref="Camera" />
 
     <!-- I'm using a button here, but we can trigger this however we want -->
-    <TelerikButton Primary="true" OnClick="GetSnap">Snap That Photo</TelerikButton>
+    @*<TelerikButton Primary="true" OnClick="GetSnap">Snap That Photo</TelerikButton>*@
+    <TelerikButton Primary="true" OnClick="StartTimer">Open Modal</TelerikButton>
 
     <!-- Toggle bits we don't want the our users to see -->
     <label>Developer: </label><TelerikSwitch @bind-Value="@DevMode"></TelerikSwitch>
@@ -13,17 +21,13 @@
 {
     <div class="results">
 
-        <!-- We can do all sorts of fun with this image -->
-        @if (data != null)
-        {
-            <img class="snapped-image" src="@data" />
-        }
-
         @if (faces != null)
         {
             <ul>
-                @foreach (var item in faces)
+                @foreach (var itemData in faces)
                 {
+                    var item = itemData.DetectedFace;
+                    <li><img src="@itemData.Data" /></li>
                     <li>Anger - @item.FaceAttributes.Emotion.Anger.ToString("p")</li>
                     <li>Contempt - @item.FaceAttributes.Emotion.Contempt.ToString("p")</li>
                     <li>Disgust - @item.FaceAttributes.Emotion.Disgust.ToString("p")</li>
@@ -32,6 +36,7 @@
                     <li>Neutral - @item.FaceAttributes.Emotion.Neutral.ToString("p")</li>
                     <li>Sadness - @item.FaceAttributes.Emotion.Sadness.ToString("p")</li>
                     <li>Surprise -  @item.FaceAttributes.Emotion.Surprise.ToString("p")</li>
+                    <li>--------</li>
                 }
             </ul>
         }
@@ -39,3 +44,4 @@
 
     <TelerikNotification @ref="ErrorNotification" VerticalPosition="NotificationVerticalPosition.Top" HorizontalPosition="NotificationHorizontalPosition.Right" />
 }
+

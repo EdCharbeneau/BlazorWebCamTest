@@ -115,3 +115,8 @@ a:hover {
     width: 100%;
     /*padding: 500px;*/
 }
+
+.k-content.k-window-content.k-dialog-content {
+    display: flex;
+    justify-content: center;
+}
