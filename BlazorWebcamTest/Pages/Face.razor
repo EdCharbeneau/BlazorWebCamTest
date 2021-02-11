@@ -1,8 +1,8 @@
 ﻿@page "/"
 
-<TelerikWindow Modal="true" Visible="WindowVisible" Width="100vw" Height="100vh">
+<TelerikWindow Modal="true" Visible="windowVisible" Width="100vw" Height="100vh">
     <WindowContent>
-        <img src="/img/@(index).jpg" />
+        <img src="/img/@(imageIndex).jpg" />
     </WindowContent>
 </TelerikWindow>
 
@@ -11,13 +11,13 @@
 
     <!-- I'm using a button here, but we can trigger this however we want -->
     @*<TelerikButton Primary="true" OnClick="GetSnap">Snap That Photo</TelerikButton>*@
-    <TelerikButton Primary="true" OnClick="StartTimer">Open Modal</TelerikButton>
+    <TelerikButton Primary="true" OnClick="StartAnalysis">Open Modal</TelerikButton>
 
     <!-- Toggle bits we don't want the our users to see -->
-    <label>Developer: </label><TelerikSwitch @bind-Value="@DevMode"></TelerikSwitch>
+    <label>Developer: </label><TelerikSwitch @bind-Value="@devMode"></TelerikSwitch>
 </div>
 
-@if (DevMode)
+@if (devMode)
 {
     <div class="results">
 
