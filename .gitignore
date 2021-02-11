@@ -3,6 +3,9 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+# ignore vscode settings, please
+.vscode
+
 # User-specific files
 *.rsuser
 *.suo
