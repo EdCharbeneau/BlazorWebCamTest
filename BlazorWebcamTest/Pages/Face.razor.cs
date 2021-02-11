@@ -43,7 +43,9 @@ namespace BlazorWebcamTest.Pages
             // Call the Face API.
             try
             {
-                var bytes = Convert.FromBase64String(base64encodedstring.Split(',')[1]);
+                // data:[<mediatype>][;base64],<data>
+                // Using split we can remove the data header and get the bytes
+                var bytes = Convert.FromBase64String(base64encodedstring.Split(',')[1]); 
                 var imageFileStream = new MemoryStream(bytes);
                 // Whatever else needs to be done here.
                 IList<DetectedFace> faceList =

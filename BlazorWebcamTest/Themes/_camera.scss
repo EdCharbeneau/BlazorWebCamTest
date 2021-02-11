@@ -1,0 +1,38 @@
+﻿.camera.streaming {
+    position: relative;
+}
+
+.camera.streaming::after {
+    content: "🔴";
+    position: absolute;
+    bottom: .5em;
+    right: .5em;
+    animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+    50% {
+        opacity: 0;
+    }
+}
+
+.camera.unavailable::after {
+    content: "🚫📷";
+    position: absolute;
+    top: 0.25em;
+    left: .25em;
+    font-size: 4em;
+    filter: grayscale(100%);
+}
+
+.camera.unavailable {
+    width: 640px;
+    height: 360px;
+    background-color: gray;
+    position: relative;
+}
+
+.camera-error {
+    text-align: center;
+    color: var(--white);
+}

@@ -2,7 +2,7 @@
     <video @ref="VideoElement">Video stream not available.</video>
     @if (!String.IsNullOrWhiteSpace(errorMessage))
     {
-        <div class="alert alert-danger">
+        <div class="camera-error">
             @errorMessage
         </div>
     }

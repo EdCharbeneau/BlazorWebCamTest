@@ -1,1 +1,52 @@
 ﻿@page "/sandbox"
+
+<TelerikChart Width="600px" Height="400px">
+    <ChartTitle Text="Love analysis"></ChartTitle>
+
+    <ChartSeriesItems>
+        <ChartSeries Type="ChartSeriesType.RadarLine"
+                     Name="Snap 1"
+                     Color="#4B5FFA"
+                     Data="@(new List<object> { 27, 23, 19, 13, 99, 7, 23, 22 })">
+            <ChartSeriesTooltip Visible="true">
+            </ChartSeriesTooltip>
+        </ChartSeries>
+
+        <ChartSeries Type="ChartSeriesType.RadarLine"
+                     Name="Snap 2"
+                     Color="#AC58FF"
+                     Data="@(new List<object> { 17, 28, 11, 23, 5, 99, 13, 27 })">
+            <ChartSeriesTooltip Visible="true">
+            </ChartSeriesTooltip>
+        </ChartSeries>
+
+        <ChartSeries Type="ChartSeriesType.RadarLine"
+                     Name="Snap 3"
+                     Color="#FF5892"
+                     Data="@(new List<object> { 13, 23, 9, 17, 10, 70, 7, 23 })">
+            <ChartSeriesTooltip Visible="true">
+            </ChartSeriesTooltip>
+        </ChartSeries>
+
+        <ChartSeries Type="ChartSeriesType.RadarLine"
+                     Name="Snap 4"
+                     Color="#FF6358"
+                     Data="@(new List<object> { 7, 20, 15, 27, 15, 20, 80, 13 })">
+            <ChartSeriesTooltip Visible="true">
+            </ChartSeriesTooltip>
+        </ChartSeries>
+    </ChartSeriesItems>
+    <ChartLegend Position="@ChartLegendPosition.Bottom"></ChartLegend>
+
+
+    <ChartCategoryAxes>
+        <ChartCategoryAxis Categories="@RadarLineCategories"></ChartCategoryAxis>
+    </ChartCategoryAxes>
+</TelerikChart>
+
+@code{
+    public string[] RadarLineCategories = new string[]
+    {
+        "Anger", "Contempt", "Disgust", "Fear", "Happiness", "Neutral", "Sadness", "Surprise"
+        };
+}
