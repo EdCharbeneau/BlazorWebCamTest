@@ -92,8 +92,6 @@ namespace BlazorWebcamTest.Pages
             return faceList[0];
         }
 
-
-
     }
 }
 
