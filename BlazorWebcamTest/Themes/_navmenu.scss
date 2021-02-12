@@ -31,11 +31,10 @@
     align-items: flex-end;
     justify-content: space-between;
     font-size: 42px;
-
 }
 
-.header a {
-    margin-right: 20px;
+.header h1 {
+    animation: heartbeat 1s infinite;
 }
 
 .logo {
@@ -71,5 +70,33 @@
     z-index: -2;
     color: #a5e4eb;
     font-family: 'pony-extrude';
+  }
+}
+
+@keyframes heartbeat
+{
+  0%
+  {
+    transform: scale( 1 );
+  }
+  20%
+  {
+    transform: scale( .95 );
+  }
+  40%
+  {
+    transform: scale( 1 );
+  }
+  60%
+  {
+    transform: scale( .95 );
+  }
+  80%
+  {
+    transform: scale( .95 );
+  }
+  100%
+  {
+    transform: scale( 1 );
   }
 }
