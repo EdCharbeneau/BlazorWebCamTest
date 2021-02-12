@@ -6,7 +6,6 @@
 
 .main {
     flex: 1;
-
 }
 
 .page {
@@ -17,12 +16,12 @@
 .content {
 	display: flex;
 	justify-content: space-around;
-	
 }
 
 /* .sidebar {
     background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);
 } */
+
 /*#container {
 	width: 100px;
 	height: 100px;
@@ -38,7 +37,8 @@ canvas,
 	left: 0;
 }
 */
-.overlay { 
+.overlay {
+	display: none !important; // display over image when in love and image is on screen
 	position: fixed;
 	top: 0;
 	bottom: 0;

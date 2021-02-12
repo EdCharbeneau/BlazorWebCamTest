@@ -22,7 +22,11 @@
             @foreach (var itemData in faces)
             {
                 var item = itemData.DetectedFace;
-                <li><img src="@itemData.Data" /></li>
+                <li>
+                    <div class="frame">
+                        <img class="snapped-image" src="@itemData.Data" />
+                    </div>
+                </li>
                 <li>AGE: @item.FaceAttributes.Age</li>
                 <li>HAIR BALD: @item.FaceAttributes.Hair.Bald</li>
                 <li>HAIR COLOR: @item.FaceAttributes.Hair.HairColor[0].Color</li>
