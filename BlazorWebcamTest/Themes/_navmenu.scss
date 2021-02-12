@@ -2,12 +2,17 @@
     height: auto;
     background-color: #313a8e;
     color: #f2f2f2;
-    padding: 20px;
+    padding: 7vmin 1rem; //flipping sexy padding 10vmin w/o imgs
     display: flex;
     align-items: flex-end;
+    justify-content: space-between;
     font-size: 1.2rem;
 }
 
 .header a {
     margin-right: 20px;
+}
+
+.logo {
+    max-width: 140px;
 }

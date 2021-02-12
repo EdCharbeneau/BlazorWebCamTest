@@ -81,14 +81,19 @@ $series-f: #aa46be;*/
   height: auto;
   background-color: #313a8e;
   color: #f2f2f2;
-  padding: 20px;
+  padding: 7vmin 1rem;
   display: flex;
   align-items: flex-end;
+  justify-content: space-between;
   font-size: 1.2rem;
 }
 
 .header a {
   margin-right: 20px;
+}
+
+.logo {
+  max-width: 140px;
 }
 
 .page {
@@ -32589,8 +32594,27 @@ a:hover {
   color: var(--main-light-color);
 }
 
+.results-wrapper ~ .camera-wrapper {
+  width: 300px;
+}
+
+.camera-wrapper {
+  width: 50vw;
+  transition: width 1s ease;
+}
+.camera-wrapper video, .camera-wrapper button {
+  width: 100%;
+}
+
 .results-wrapper {
   display: flex;
+  flex: 1;
+  justify-content: center;
+  background: hotpink;
+}
+.results-wrapper img {
+  display: block;
+  width: 100%;
 }
 
 .snapped-image {
@@ -32632,15 +32656,6 @@ a:hover {
 }
 
 /* REfactor */
-.content .camera video {
-  width: 100%;
-}
-
-.content button {
-  width: 100%;
-  /*padding: 500px;*/
-}
-
 .k-content.k-window-content.k-dialog-content {
   display: flex;
   justify-content: center;

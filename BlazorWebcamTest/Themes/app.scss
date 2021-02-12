@@ -63,8 +63,29 @@ a:hover {
     color: var(--main-light-color);
 }
 
+.results-wrapper ~ .camera-wrapper {
+    width: 300px;
+}
+
+.camera-wrapper {
+    width: 50vw;
+    transition: width 1s ease;
+
+    video, button {
+        width: 100%;
+    }
+}
+
 .results-wrapper {
     display: flex;
+    flex: 1;
+    justify-content: center;
+    background: hotpink;
+
+    img {
+        display: block;
+        width: 100%;
+    }
 }
 
 .snapped-image {
@@ -107,14 +128,9 @@ a:hover {
 }
 
 /* REfactor */
-.content .camera video {
-    width: 100%;
-}
-
-.content button {
-    width: 100%;
-    /*padding: 500px;*/
-}
+// .content button {
+//     width: 100%;
+// }
 
 .k-content.k-window-content.k-dialog-content {
     display: flex;
