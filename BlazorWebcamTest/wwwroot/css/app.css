@@ -103,8 +103,8 @@ $series-f: #aa46be;*/
   font-size: 42px;
 }
 
-.header a {
-  margin-right: 20px;
+.header h1 {
+  animation: heartbeat 1s infinite;
 }
 
 .logo {
@@ -138,6 +138,26 @@ $series-f: #aa46be;*/
   font-family: "pony-extrude";
 }
 
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+  20% {
+    transform: scale(0.95);
+  }
+  40% {
+    transform: scale(1);
+  }
+  60% {
+    transform: scale(0.95);
+  }
+  80% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 .page {
   position: relative;
   display: flex;
@@ -177,6 +197,7 @@ canvas,
 }
 */
 .overlay {
+  display: none !important;
   position: fixed;
   top: 0;
   bottom: 0;
@@ -32701,13 +32722,6 @@ a:hover {
   width: 100%;
 }
 
-.snapped-image {
-  max-width: 400px;
-}
-
-/* TODO: ASK ED ABOUT VARIABLE FILE */
-/* TODO: ASK ED ABOUT SASS, WHY DO YOU HATE ME */
-/* TODO: ASK ED ABOUT RESET FILE */
 .valid.modified:not([type=checkbox]) {
   outline: 1px solid #26b050;
 }
@@ -32743,6 +32757,53 @@ a:hover {
 .k-content.k-window-content.k-dialog-content {
   display: flex;
   justify-content: center;
+}
+
+img.snapped-image {
+  border: solid 2px;
+  border-bottom-color: #ffe;
+  border-left-color: #eed;
+  border-right-color: #eed;
+  border-top-color: #ccb;
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.frame {
+  background-color: #ddc;
+  border: solid 5vmin #eee;
+  border-bottom-color: #fff;
+  border-left-color: #eee;
+  border-radius: 2px;
+  border-right-color: #eee;
+  border-top-color: #ddd;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25) inset, 0 5px 10px 5px rgba(0, 0, 0, 0.25);
+  box-sizing: border-box;
+  display: inline-block;
+  margin: 10vh 10vw;
+  padding: 8vmin;
+  position: relative;
+  text-align: center;
+}
+.frame:before {
+  border-radius: 2px;
+  bottom: -2vmin;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25) inset;
+  content: "";
+  left: -2vmin;
+  position: absolute;
+  right: -2vmin;
+  top: -2vmin;
+}
+.frame:after {
+  border-radius: 2px;
+  bottom: -2.5vmin;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
+  content: "";
+  left: -2.5vmin;
+  position: absolute;
+  right: -2.5vmin;
+  top: -2.5vmin;
 }
 
 /*# sourceMappingURL=app.css.map */
