@@ -28,10 +28,14 @@ namespace BlazorWebcamTest.Pages
 
         // State
         bool windowVisible;
-        bool devMode = true;
+        bool devMode = false;
         readonly List<(string Data, DetectedFace DetectedFace)> faces = new();
         int imageIndex;
         FinalResult finalResult = new();
+        (string Data, DetectedFace DetectedFace) happiest =>
+            faces.Aggregate((result, nextFace) => 
+            result.DetectedFace.FaceAttributes.Emotion.Happiness >
+            nextFace.DetectedFace.FaceAttributes.Emotion.Happiness ? result : nextFace);
         bool analysisComplete = false;
 
         async Task StartAnalysis()
@@ -49,10 +53,6 @@ namespace BlazorWebcamTest.Pages
             }
             finalResult.Happiness = faces.Select(f => f.DetectedFace).Average(df => df.FaceAttributes.Emotion.Happiness);
             
-            var happiest = faces.Aggregate((result, nextFace) => 
-                result.DetectedFace.FaceAttributes.Emotion.Happiness >
-                result.DetectedFace.FaceAttributes.Emotion.Happiness ? result : nextFace);
-
             windowVisible = false;
             analysisComplete = true;
             await LoveRain();

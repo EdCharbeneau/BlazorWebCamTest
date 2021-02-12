@@ -197,7 +197,6 @@ canvas,
 }
 */
 .overlay {
-  display: none !important;
   position: fixed;
   top: 0;
   bottom: 0;
@@ -32804,6 +32803,73 @@ img.snapped-image {
   position: absolute;
   right: -2.5vmin;
   top: -2.5vmin;
+}
+
+.bubbling-heart div {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 25vh) scale(0);
+  opacity: 0;
+  animation: bubbleUp 2s infinite;
+}
+
+.bubbling-heart div i {
+  transform: translateX(12.5vw) rotate(25deg);
+  animation: oscillate 4s ease-in-out infinite;
+}
+
+.bubbling-heart div:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.bubbling-heart div:nth-child(2) i {
+  animation-delay: 1s;
+}
+
+.bubbling-heart div:nth-child(3) {
+  animation-delay: 1s;
+}
+
+.bubbling-heart div:nth-child(3) i {
+  animation-delay: 2s;
+}
+
+.bubbling-heart div:nth-child(4) {
+  animation-delay: 1.5s;
+}
+
+.bubbling-heart div:nth-child(4) i {
+  animation-delay: 3s;
+}
+
+@keyframes bubbleUp {
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -25vh) scale(2);
+  }
+}
+@keyframes oscillate {
+  50% {
+    transform: translateX(-12.5vw) rotate(-25deg);
+  }
+}
+.bubbling-heart div:nth-child(3) {
+  animation-delay: 1s;
+}
+
+.bubbling-heart div:nth-child(3) i {
+  animation-delay: 2s;
+}
+
+.bubbling-heart div:nth-child(4) {
+  animation-delay: 1.5s;
+}
+
+.bubbling-heart div:nth-child(4) i {
+  animation-delay: 3s;
 }
 
 /*# sourceMappingURL=app.css.map */

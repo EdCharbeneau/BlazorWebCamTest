@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Azure.CognitiveServices.Vision.Face.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -31,5 +32,6 @@ namespace BlazorWebcamTest
 
         public static IEnumerable<T> Suffle<T>(this IEnumerable<T> source) => source.ToList().Shuffle();
 
+        public static bool IsHappy(this DetectedFace detectedFace) => detectedFace.FaceAttributes.Emotion.Happiness > .5;
     }
 }

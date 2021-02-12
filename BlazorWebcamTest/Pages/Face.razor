@@ -4,10 +4,7 @@
     <canvas class="hearts"></canvas>
 </div>
 
-@if (analysisComplete == true)
-{
-    <span>Happyness: @finalResult.Happiness.ToString("p")</span>
-}
+
 
 <TelerikWindow Modal="true" Visible="windowVisible" Width="100vw" Height="100vh">
     <WindowContent>
@@ -15,46 +12,59 @@
     </WindowContent>
 </TelerikWindow>
 
-@if (faces != null && faces.Any())
+@if (analysisComplete == true)
 {
     <div class="results-wrapper">
-        <ul>
-            @foreach (var itemData in faces)
-            {
-                var item = itemData.DetectedFace;
-                <li>
-                    <div class="frame">
-                        <img class="snapped-image" src="@itemData.Data" />
-                    </div>
-                </li>
-                <li>AGE: @item.FaceAttributes.Age</li>
-                <li>HAIR BALD: @item.FaceAttributes.Hair.Bald</li>
-                <li>HAIR COLOR: @item.FaceAttributes.Hair.HairColor[0].Color</li>
-                <li>HAIR INVISIBLE: @item.FaceAttributes.Hair.Invisible</li>
-                <li>EYE MAKEUP: @item.FaceAttributes.Makeup.EyeMakeup</li>
-                <li>LIP MAKEUP:@item.FaceAttributes.Makeup.LipMakeup</li>
-                <li>FACIAL HAIR BEARD: @item.FaceAttributes.FacialHair.Beard</li>
-                <li>PIC HEIGHT: @item.FaceRectangle.Height</li>
-                <li>PIC WIDTH: @item.FaceRectangle.Width</li>
-                <li>FACE TOP COORDS: @item.FaceRectangle.Top</li>
-                <li>FACE LEFT COORDS: @item.FaceRectangle.Left</li>
-                <li>Anger - @item.FaceAttributes.Emotion.Anger.ToString("p")</li>
-                <li>Contempt - @item.FaceAttributes.Emotion.Contempt.ToString("p")</li>
-                <li>Disgust - @item.FaceAttributes.Emotion.Disgust.ToString("p")</li>
-                <li>Fear - @item.FaceAttributes.Emotion.Fear.ToString("p")</li>
-                <li>Happiness - @item.FaceAttributes.Emotion.Happiness.ToString("p")</li>
-                <li>Neutral - @item.FaceAttributes.Emotion.Neutral.ToString("p")</li>
-                <li>Sadness - @item.FaceAttributes.Emotion.Sadness.ToString("p")</li>
-                <li>Surprise -  @item.FaceAttributes.Emotion.Surprise.ToString("p")</li>
-                <hr><!-- Alyssa did this -->
-                <!-- Not Ed's code -->
-            }
-        </ul>
+        <span>Avg. Happiness: @finalResult.Happiness.ToString("p")</span>
+        <span>Happiest: @happiest.DetectedFace.FaceAttributes.Emotion.Happiness.ToString("p")</span>
+        <div class="frame">
+            <img class="snapped-image" src="@happiest.Data" />
+        </div>
+
+        @if (devMode)
+        {
+            <ul>
+                @foreach (var itemData in faces)
+                {
+                    var item = itemData.DetectedFace;
+
+                    <img class="snapped-image" src="@itemData.Data" />
+
+                    <li>AGE: @item.FaceAttributes.Age</li>
+                    <li>HAIR BALD: @item.FaceAttributes.Hair.Bald</li>
+                    <li>HAIR COLOR: @item.FaceAttributes.Hair.HairColor[0].Color</li>
+                    <li>HAIR INVISIBLE: @item.FaceAttributes.Hair.Invisible</li>
+                    <li>EYE MAKEUP: @item.FaceAttributes.Makeup.EyeMakeup</li>
+                    <li>LIP MAKEUP:@item.FaceAttributes.Makeup.LipMakeup</li>
+                    <li>FACIAL HAIR BEARD: @item.FaceAttributes.FacialHair.Beard</li>
+                    <li>PIC HEIGHT: @item.FaceRectangle.Height</li>
+                    <li>PIC WIDTH: @item.FaceRectangle.Width</li>
+                    <li>FACE TOP COORDS: @item.FaceRectangle.Top</li>
+                    <li>FACE LEFT COORDS: @item.FaceRectangle.Left</li>
+                    <li>Anger - @item.FaceAttributes.Emotion.Anger.ToString("p")</li>
+                    <li>Contempt - @item.FaceAttributes.Emotion.Contempt.ToString("p")</li>
+                    <li>Disgust - @item.FaceAttributes.Emotion.Disgust.ToString("p")</li>
+                    <li>Fear - @item.FaceAttributes.Emotion.Fear.ToString("p")</li>
+                    <li>Happiness - @item.FaceAttributes.Emotion.Happiness.ToString("p")</li>
+                    <li>Neutral - @item.FaceAttributes.Emotion.Neutral.ToString("p")</li>
+                    <li>Sadness - @item.FaceAttributes.Emotion.Sadness.ToString("p")</li>
+                    <li>Surprise -  @item.FaceAttributes.Emotion.Surprise.ToString("p")</li>
+                    <hr><!-- Alyssa did this -->
+                    <!-- Not Ed's code -->
+                }
+            </ul>
+        }
     </div>
 }
 
 <div class="camera-wrapper">
     <Webcam @ref="Camera" />
+    <div class="bubbling-heart">
+        <div><i class="fa">❤️</i></div>
+        <div><i class="fa">❤️</i></div>
+        <div><i class="fa">❤️</i></div>
+        <div><i class="fa">❤️</i></div>
+    </div>
     @if (devMode)
     {
         <TelerikButton Primary="true" OnClick="GetSnap" Class="zed">Take a Test Photo</TelerikButton>

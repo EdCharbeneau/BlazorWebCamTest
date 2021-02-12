@@ -5,7 +5,7 @@
 @import "mainLayout";
 @import "camera";
 @import "../node_modules/@progress/kendo-theme-material/dist/all.scss";
-    
+
 :root {
     --main-dark-color: #313a8e;
     --main-light-color: #c6d2ec;
@@ -45,7 +45,7 @@ button.cta {
     padding: 4px 8px;
     border: 4px solid var(--white);
     text-transform: uppercase;*/
-    /* width: auto; */
+/* width: auto; */
 /*}
 
 button.cta:hover {
@@ -87,7 +87,7 @@ a:hover {
         width: 100%;
     }
 }
- 
+
 .valid.modified:not([type=checkbox]) {
     outline: 1px solid #26b050;
 }
@@ -133,49 +133,122 @@ a:hover {
 // Picture frame by Chris Smith
 
 img.snapped-image {
-  border:solid 2px;
-  border-bottom-color:#ffe;
-  border-left-color:#eed;
-  border-right-color:#eed;
-  border-top-color:#ccb;
-  max-height:100%;
-  max-width:100%;
+    border: solid 2px;
+    border-bottom-color: #ffe;
+    border-left-color: #eed;
+    border-right-color: #eed;
+    border-top-color: #ccb;
+    max-height: 100%;
+    max-width: 100%;
 }
 
 .frame {
-  background-color:#ddc;
-  border:solid 5vmin #eee;
-  border-bottom-color:#fff;
-  border-left-color:#eee;
-  border-radius:2px;
-  border-right-color:#eee;
-  border-top-color:#ddd;
-  box-shadow:0 0 5px 0 rgba(0,0,0,.25) inset, 0 5px 10px 5px rgba(0,0,0,.25);
-  box-sizing:border-box;
-  display:inline-block;
-  margin:10vh 10vw;
-  // height:80vh;
-  padding:8vmin;
-  position:relative;
-  text-align:center;
-  &:before {
-    border-radius:2px;
-    bottom:-2vmin;
-    box-shadow:0 2px 5px 0 rgba(0,0,0,.25) inset;
-    content:"";
-    left:-2vmin;
-    position:absolute;
-    right:-2vmin;
-    top:-2vmin;
-  }
-  &:after {
-    border-radius:2px;
-    bottom:-2.5vmin;
-    box-shadow: 0 2px 5px 0 rgba(0,0,0,.25);
-    content:"";
-    left:-2.5vmin;
-    position:absolute;
-    right:-2.5vmin;
-    top:-2.5vmin;
-  }
+    background-color: #ddc;
+    border: solid 5vmin #eee;
+    border-bottom-color: #fff;
+    border-left-color: #eee;
+    border-radius: 2px;
+    border-right-color: #eee;
+    border-top-color: #ddd;
+    box-shadow: 0 0 5px 0 rgba(0,0,0,.25) inset, 0 5px 10px 5px rgba(0,0,0,.25);
+    box-sizing: border-box;
+    display: inline-block;
+    margin: 10vh 10vw;
+    // height:80vh;
+    padding: 8vmin;
+    position: relative;
+    text-align: center;
+
+    &:before {
+        border-radius: 2px;
+        bottom: -2vmin;
+        box-shadow: 0 2px 5px 0 rgba(0,0,0,.25) inset;
+        content: "";
+        left: -2vmin;
+        position: absolute;
+        right: -2vmin;
+        top: -2vmin;
+    }
+
+    &:after {
+        border-radius: 2px;
+        bottom: -2.5vmin;
+        box-shadow: 0 2px 5px 0 rgba(0,0,0,.25);
+        content: "";
+        left: -2.5vmin;
+        position: absolute;
+        right: -2.5vmin;
+        top: -2.5vmin;
+    }
+}
+
+.bubbling-heart div {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 25vh) scale(0);
+    opacity: 0;
+    animation: bubbleUp 2s infinite;
+}
+
+.bubbling-heart div i {
+    transform: translateX(12.5vw) rotate(25deg);
+    animation: oscillate 4s ease-in-out infinite;
+}
+
+.bubbling-heart div:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.bubbling-heart div:nth-child(2) i {
+    animation-delay: 1s;
+}
+
+.bubbling-heart div:nth-child(3) {
+    animation-delay: 1s;
+}
+
+.bubbling-heart div:nth-child(3) i {
+    animation-delay: 2s;
+}
+
+.bubbling-heart div:nth-child(4) {
+    animation-delay: 1.5s;
+}
+
+.bubbling-heart div:nth-child(4) i {
+    animation-delay: 3s;
+}
+
+@keyframes bubbleUp {
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(-50%, -25vh) scale(2);
+    }
+}
+
+@keyframes oscillate {
+    50% {
+        transform: translateX(-12.5vw) rotate(-25deg);
+    }
+}
+
+
+.bubbling-heart div:nth-child(3) {
+    animation-delay: 1s;
+}
+
+.bubbling-heart div:nth-child(3) i {
+    animation-delay: 2s;
+}
+
+.bubbling-heart div:nth-child(4) {
+    animation-delay: 1.5s;
+}
+
+.bubbling-heart div:nth-child(4) i {
+    animation-delay: 3s;
 }
