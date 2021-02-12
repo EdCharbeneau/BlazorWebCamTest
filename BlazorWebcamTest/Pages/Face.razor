@@ -7,7 +7,7 @@
 </TelerikWindow>
 
 
-@if (faces != null && faces.Count > 0) {
+@if (faces != null && faces.Any()) {
     <div class="results-wrapper">
         <ul>
             @foreach (var itemData in faces)
