@@ -79,7 +79,8 @@ $series-e: #2d73f5;
 $series-f: #aa46be;*/
 .header {
   height: auto;
-  background-color: #313a8e;
+  background: #833ab4;
+  background: linear-gradient(90deg, #833ab4 0%, #fd1d1d 50%, #fcb045 100%);
   color: #f2f2f2;
   padding: 7vmin 1rem;
   display: flex;
@@ -104,6 +105,11 @@ $series-f: #aa46be;*/
 
 .main {
   flex: 1;
+}
+
+.page {
+  background: #eeaeca;
+  background: radial-gradient(circle, #eeaeca 0%, #94bbe9 100%);
 }
 
 .content {
@@ -144,6 +150,11 @@ canvas,
 
 .zed, .k-switch-container {
   z-index: 20;
+}
+
+.k-button {
+  background: #3f5efb;
+  background: radial-gradient(circle, #3f5efb 0%, #fc466b 100%);
 }
 
 .camera.streaming {
