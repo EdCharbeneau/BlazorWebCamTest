@@ -4,6 +4,7 @@
    v2.0 | 20110126
    License: none (public domain)
 */
+@import url("https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap");
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -77,16 +78,29 @@ $series-c: #78d237;
 $series-d: #28b4c8;
 $series-e: #2d73f5;
 $series-f: #aa46be;*/
+@font-face {
+  font-family: "pony";
+  src: url("/fonts/bratsy-font/bratsy-script.woff2") format("woff2"), url("/fonts/bratsy-font/bratsy-script.woff") format("woff");
+}
+@font-face {
+  font-family: "pony-outline";
+  src: url("/fonts/bratsy-font/bratsy-outline.woff2") format("woff2"), url("/fonts/bratsy-font/bratsy-outline.woff") format("woff");
+}
+@font-face {
+  font-family: "pony-extrude";
+  src: url("/fonts/bratsy-font/bratsy-extrude.woff2") format("woff2"), url("/fonts/bratsy-font/bratsy-extrude.woff") format("woff");
+}
 .header {
-  height: auto;
+  font-family: "Hammersmith One", sans-serif;
   background: #833ab4;
   background: linear-gradient(90deg, #833ab4 0%, #fd1d1d 50%, #fcb045 100%);
+  height: auto;
   color: #f2f2f2;
   padding: 7vmin 1rem;
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  font-size: 1.2rem;
+  font-size: 42px;
 }
 
 .header a {
@@ -95,6 +109,33 @@ $series-f: #aa46be;*/
 
 .logo {
   max-width: 140px;
+}
+
+[data-text] {
+  z-index: 1;
+  position: relative;
+  display: inline-block;
+  color: white;
+  font-family: "pony";
+}
+[data-text]::before, [data-text]::after {
+  top: 0;
+  right: 0;
+  left: 0;
+  position: absolute;
+  content: attr(data-text);
+  display: block;
+  text-align: inherit;
+}
+[data-text]::before {
+  z-index: -1;
+  color: purple;
+  font-family: "pony-outline";
+}
+[data-text]::after {
+  z-index: -2;
+  color: #a5e4eb;
+  font-family: "pony-extrude";
 }
 
 .page {

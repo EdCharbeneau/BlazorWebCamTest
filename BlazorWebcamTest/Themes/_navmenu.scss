@@ -1,15 +1,37 @@
-﻿.header {
-	height: auto;
+﻿// Fonts for our Application
+@import url('https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap');
 
-	//background-color: #313a8e;
+@font-face {
+  font-family: 'pony';
+  src: url('/fonts/bratsy-font/bratsy-script.woff2') format('woff2'), 
+    url('/fonts/bratsy-font/bratsy-script.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'pony-outline';
+  src: url('/fonts/bratsy-font/bratsy-outline.woff2') format('woff2'), 
+    url('/fonts/bratsy-font/bratsy-outline.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'pony-extrude';
+  src: url('/fonts/bratsy-font/bratsy-extrude.woff2') format('woff2'), 
+    url('/fonts/bratsy-font/bratsy-extrude.woff') format('woff');
+}
+
+
+.header {
+    font-family: 'Hammersmith One', sans-serif;
 	background: rgb(131,58,180);
 	background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
-	color: #f2f2f2;
-	padding: 7vmin 1rem; //flipping sexy padding 10vmin w/o imgs
-	display: flex;
-	align-items: flex-end;
-	justify-content: space-between;
-	font-size: 1.2rem;
+    height: auto;
+    color: #f2f2f2;
+    padding: 7vmin 1rem; //flipping sexy padding 10vmin w/o imgs
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    font-size: 42px;
+
 }
 
 .header a {
@@ -18,4 +40,36 @@
 
 .logo {
     max-width: 140px;
+}
+
+// Fancy font stuff, yo
+[data-text] {
+  z-index: 1;
+  position: relative;
+  display: inline-block;
+  color: white;
+  font-family: 'pony';
+  
+
+  &::before, &::after {
+    top: 0;
+    right: 0;
+    left: 0;
+    position: absolute;
+    content: attr(data-text);
+    display: block;
+    text-align: inherit;
+  }
+
+  &::before {
+    z-index: -1;
+    color: purple;
+    font-family: 'pony-outline';
+  }
+
+  &::after {
+    z-index: -2;
+    color: #a5e4eb;
+    font-family: 'pony-extrude';
+  }
 }
