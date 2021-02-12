@@ -1,8 +1,13 @@
 ﻿@page "/"
 
 <div class="overlay">
-	<canvas class="hearts"></canvas>
+    <canvas class="hearts"></canvas>
 </div>
+
+@if (analysisComplete == true)
+{
+    <span>Happyness: @finalResult.Happiness.ToString("p")</span>
+}
 
 <TelerikWindow Modal="true" Visible="windowVisible" Width="100vw" Height="100vh">
     <WindowContent>
@@ -10,8 +15,8 @@
     </WindowContent>
 </TelerikWindow>
 
-
-@if (faces != null && faces.Any()) {
+@if (faces != null && faces.Any())
+{
     <div class="results-wrapper">
         <ul>
             @foreach (var itemData in faces)
@@ -37,7 +42,8 @@
                 <li>Neutral - @item.FaceAttributes.Emotion.Neutral.ToString("p")</li>
                 <li>Sadness - @item.FaceAttributes.Emotion.Sadness.ToString("p")</li>
                 <li>Surprise -  @item.FaceAttributes.Emotion.Surprise.ToString("p")</li>
-                <hr>
+                <hr><!-- Alyssa did this -->
+                <!-- Not Ed's code -->
             }
         </ul>
     </div>
@@ -45,15 +51,18 @@
 
 <div class="camera-wrapper">
     <Webcam @ref="Camera" />
-    @if (devMode) {
+    @if (devMode)
+    {
         <TelerikButton Primary="true" OnClick="GetSnap" Class="zed">Take a Test Photo</TelerikButton>
-    } else {
-        <TelerikButton Primary="true" OnClick="StartAnalysis"  Class="zed">In the mood for love?</TelerikButton>
+    }
+    else
+    {
+        <TelerikButton Primary="true" OnClick="StartAnalysis" Class="zed">In the mood for love?</TelerikButton>
     }
     <!-- Toggle bits we don't want the our users to see -->
-    <label>Developer: </label><TelerikSwitch @bind-Value="@devMode"  Class="zed"></TelerikSwitch>
+    <label>Developer: </label><TelerikSwitch @bind-Value="@devMode" Class="zed"></TelerikSwitch>
 </div>
 
-    <TelerikNotification @ref="ErrorNotification" VerticalPosition="NotificationVerticalPosition.Top" HorizontalPosition="NotificationHorizontalPosition.Right" />
+<TelerikNotification @ref="ErrorNotification" VerticalPosition="NotificationVerticalPosition.Top" HorizontalPosition="NotificationHorizontalPosition.Right" />
 
 
