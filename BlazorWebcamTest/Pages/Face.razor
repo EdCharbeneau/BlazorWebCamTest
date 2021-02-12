@@ -1,5 +1,9 @@
 ﻿@page "/"
 
+<div class="overlay">
+	<canvas class="hearts"></canvas>
+</div>
+
 <TelerikWindow Modal="true" Visible="windowVisible" Width="100vw" Height="100vh">
     <WindowContent>
         <img src="/img/@(imageIndex).jpg" />
@@ -42,13 +46,14 @@
 <div class="camera-wrapper">
     <Webcam @ref="Camera" />
     @if (devMode) {
-        <TelerikButton Primary="true" OnClick="GetSnap">Take a Test Photo</TelerikButton>
+        <TelerikButton Primary="true" OnClick="GetSnap" Class="zed">Take a Test Photo</TelerikButton>
     } else {
-        <TelerikButton Primary="true" OnClick="StartAnalysis">In the mood for love?</TelerikButton>
+        <TelerikButton Primary="true" OnClick="StartAnalysis"  Class="zed">In the mood for love?</TelerikButton>
     }
     <!-- Toggle bits we don't want the our users to see -->
-    <label>Developer: </label><TelerikSwitch @bind-Value="@devMode"></TelerikSwitch>
+    <label>Developer: </label><TelerikSwitch @bind-Value="@devMode"  Class="zed"></TelerikSwitch>
 </div>
 
-<TelerikNotification @ref="ErrorNotification" VerticalPosition="NotificationVerticalPosition.Top" HorizontalPosition="NotificationHorizontalPosition.Right" />
+    <TelerikNotification @ref="ErrorNotification" VerticalPosition="NotificationVerticalPosition.Top" HorizontalPosition="NotificationHorizontalPosition.Right" />
+
 

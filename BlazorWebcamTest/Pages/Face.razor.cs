@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Microsoft.Azure.CognitiveServices.Vision.Face;
 using Microsoft.Azure.CognitiveServices.Vision.Face.Models;
+using Microsoft.JSInterop;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -16,9 +17,13 @@ namespace BlazorWebcamTest.Pages
     {
         // Dependencies
         [Inject] AzureSettings Settings { get; set; }
+		const string JsModulePath = "./js/loverain.js";
 
-        // Component References
-        TelerikNotification ErrorNotification { get; set; }
+		[Inject] IJSRuntime JsRuntime { get; set; }
+		Lazy<Task<IJSObjectReference>> moduleTask;
+
+		// Component References
+		TelerikNotification ErrorNotification { get; set; }
         Webcam Camera { get; set; }
 
         // State
@@ -41,7 +46,10 @@ namespace BlazorWebcamTest.Pages
                 await Task.Delay(100); // rest period
             }
             windowVisible = false;
-        }
+			await LoveRain();
+
+
+		}
         async Task GetSnap()
         {
             var data = await Camera.GetSnapshot();
@@ -93,6 +101,16 @@ namespace BlazorWebcamTest.Pages
             // Return the first face found
             return faceList[0];
         }
+
+
+		async Task LoveRain()
+		{		
+			moduleTask = new(() => JsRuntime.InvokeAsync<IJSObjectReference>("import", JsModulePath)
+												   .AsTask());
+			var module = await moduleTask.Value;
+			await module.InvokeVoidAsync("MakeItRain");
+			StateHasChanged();
+		} 
 
     }
 }

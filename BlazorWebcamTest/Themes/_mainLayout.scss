@@ -6,13 +6,56 @@
 
 .main {
     flex: 1;
+
+}
+
+.page {
+	background: rgb(238,174,202);
+	background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
 }
 
 .content {
-    display: flex;
-    justify-content: space-around;
+	display: flex;
+	justify-content: space-around;
+	
 }
 
 /* .sidebar {
     background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);
 } */
+/*#container {
+	width: 100px;
+	height: 100px;
+	position: relative;
+}
+
+canvas,
+#overlay {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+*/
+.overlay { 
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 10;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.zed, .k-switch-container {
+	z-index: 20;
+}
+
+.k-button {
+	background: rgb(63,94,251);
+	background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+}

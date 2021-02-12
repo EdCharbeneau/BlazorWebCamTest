@@ -1,6 +1,5 @@
-﻿@import url('https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap');
-
-// Fonts for our Application
+﻿// Fonts for our Application
+@import url('https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap');
 
 @font-face {
   font-family: 'pony';
@@ -23,14 +22,16 @@
 
 .header {
     font-family: 'Hammersmith One', sans-serif;
+	background: rgb(131,58,180);
+	background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
     height: auto;
-    background-color: #313a8e;
     color: #f2f2f2;
     padding: 7vmin 1rem; //flipping sexy padding 10vmin w/o imgs
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
     font-size: 42px;
+
 }
 
 .header a {
@@ -41,7 +42,7 @@
     max-width: 140px;
 }
 
-
+// Fancy font stuff, yo
 [data-text] {
   z-index: 1;
   position: relative;
