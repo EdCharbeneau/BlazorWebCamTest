@@ -30,7 +30,7 @@ const rightWall = Bodies.rectangle(1280, 360, 4, 800, boundaryOptions);
 
 export async function MakeItRain() {
 	createBall();
-	for (let i = 0; i < 100; i++) {
+	for (let i = 0; i < 200; i++) {
 		World.add(engine.world, [createBall('./img/heart.png')])
 	}
 }

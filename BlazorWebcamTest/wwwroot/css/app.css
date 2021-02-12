@@ -142,8 +142,8 @@ canvas,
   flex-direction: column;
 }
 
-.zed {
-  z-index: 10;
+.zed, .k-switch-container {
+  z-index: 20;
 }
 
 .camera.streaming {
