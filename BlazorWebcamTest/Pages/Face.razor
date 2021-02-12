@@ -1,59 +1,67 @@
 ﻿@page "/"
 
-<TelerikWindow Modal="true" Visible="windowVisible" Width="100vw" Height="100vh">
-    <WindowContent>
-        <img src="/img/@(imageIndex).jpg" />
-    </WindowContent>
-</TelerikWindow>
-
-<div class="camera-wrapper">
-    <Webcam @ref="Camera" />
-
-    <!-- I'm using a button here, but we can trigger this however we want -->
-    @*<TelerikButton Primary="true" OnClick="GetSnap">Snap That Photo</TelerikButton>*@
-    <TelerikButton Primary="true" OnClick="StartAnalysis">Open Modal</TelerikButton>
-
-    <!-- Toggle bits we don't want the our users to see -->
-    <label>Developer: </label><TelerikSwitch @bind-Value="@devMode"></TelerikSwitch>
+<div class="overlay">
+	<canvas class="hearts"></canvas>
 </div>
 
-@if (devMode)
-{
-    <div class="results">
 
-        @if (faces != null)
-        {
-            <ul>
-                @foreach (var itemData in faces)
-                {
-                    var item = itemData.DetectedFace;
-                    <li>@item.FaceAttributes.Age</li>
-                    <li>@item.FaceAttributes.Hair.Bald</li>
-                    <li>@item.FaceAttributes.Hair.HairColor[0].Color</li>
-                    <li>@item.FaceAttributes.Hair.Invisible</li>
-                    <li>@item.FaceAttributes.Makeup.EyeMakeup</li>
-                    <li>@item.FaceAttributes.Makeup.LipMakeup</li>
-                    <li>@item.FaceAttributes.FacialHair.Beard</li>
-                    <li>@item.FaceRectangle.Height</li>
-                    <li>@item.FaceRectangle.Width</li>
-                    <li>@item.FaceRectangle.Top</li>
-                    <li>@item.FaceRectangle.Left</li>
+<div>
+	<TelerikWindow Modal="true" Visible="windowVisible" Width="100vw" Height="100vh">
+		<WindowContent>
+			<img src="/img/@(imageIndex).jpg" />
+		</WindowContent>
+	</TelerikWindow>
 
-                    <li><img src="@itemData.Data" /></li>
-                    <li>Anger - @item.FaceAttributes.Emotion.Anger.ToString("p")</li>
-                    <li>Contempt - @item.FaceAttributes.Emotion.Contempt.ToString("p")</li>
-                    <li>Disgust - @item.FaceAttributes.Emotion.Disgust.ToString("p")</li>
-                    <li>Fear - @item.FaceAttributes.Emotion.Fear.ToString("p")</li>
-                    <li>Happiness - @item.FaceAttributes.Emotion.Happiness.ToString("p")</li>
-                    <li>Neutral - @item.FaceAttributes.Emotion.Neutral.ToString("p")</li>
-                    <li>Sadness - @item.FaceAttributes.Emotion.Sadness.ToString("p")</li>
-                    <li>Surprise -  @item.FaceAttributes.Emotion.Surprise.ToString("p")</li>
-                    <li>--------</li>
-                }
-            </ul>
-        }
-    </div>
+	<div class="camera-wrapper">
+		<Webcam @ref="Camera" />
 
-    <TelerikNotification @ref="ErrorNotification" VerticalPosition="NotificationVerticalPosition.Top" HorizontalPosition="NotificationHorizontalPosition.Right" />
-}
+		<!-- I'm using a button here, but we can trigger this however we want -->
+		@*<TelerikButton Primary="true" OnClick="GetSnap">Snap That Photo</TelerikButton>*@
+		<TelerikButton Primary="true" OnClick="StartAnalysis" Class="zed">Open Modal</TelerikButton>
+		@*<TelerikButton Primary="true" OnClick="LoveRain" Class="zed">Rain</TelerikButton>*@
+
+		<!-- Toggle bits we don't want the our users to see -->
+		<label>Developer: </label><TelerikSwitch @bind-Value="@devMode"></TelerikSwitch>
+	</div>
+
+	@if (devMode)
+	{
+		<div class="results">
+
+			@if (faces != null)
+			{
+				<ul>
+					@foreach (var itemData in faces)
+					{
+						var item = itemData.DetectedFace;
+						<li>@item.FaceAttributes.Age</li>
+						<li>@item.FaceAttributes.Hair.Bald</li>
+						<li>@item.FaceAttributes.Hair.HairColor[0].Color</li>
+						<li>@item.FaceAttributes.Hair.Invisible</li>
+						<li>@item.FaceAttributes.Makeup.EyeMakeup</li>
+						<li>@item.FaceAttributes.Makeup.LipMakeup</li>
+						<li>@item.FaceAttributes.FacialHair.Beard</li>
+						<li>@item.FaceRectangle.Height</li>
+						<li>@item.FaceRectangle.Width</li>
+						<li>@item.FaceRectangle.Top</li>
+						<li>@item.FaceRectangle.Left</li>
+
+						<li><img src="@itemData.Data" /></li>
+						<li>Anger - @item.FaceAttributes.Emotion.Anger.ToString("p")</li>
+						<li>Contempt - @item.FaceAttributes.Emotion.Contempt.ToString("p")</li>
+						<li>Disgust - @item.FaceAttributes.Emotion.Disgust.ToString("p")</li>
+						<li>Fear - @item.FaceAttributes.Emotion.Fear.ToString("p")</li>
+						<li>Happiness - @item.FaceAttributes.Emotion.Happiness.ToString("p")</li>
+						<li>Neutral - @item.FaceAttributes.Emotion.Neutral.ToString("p")</li>
+						<li>Sadness - @item.FaceAttributes.Emotion.Sadness.ToString("p")</li>
+						<li>Surprise -  @item.FaceAttributes.Emotion.Surprise.ToString("p")</li>
+						<li>--------</li>
+					}
+				</ul>
+			}
+		</div>
+
+		<TelerikNotification @ref="ErrorNotification" VerticalPosition="NotificationVerticalPosition.Top" HorizontalPosition="NotificationHorizontalPosition.Right" />
+	}
+</div>
 
