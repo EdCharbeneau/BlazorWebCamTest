@@ -1,5 +1,9 @@
 ﻿@page "/"
 
+<div class="overlay">
+	<canvas class="hearts"></canvas>
+</div>
+
 <TelerikWindow Modal="true" Visible="windowVisible" Width="100vw" Height="100vh">
     <WindowContent>
         <img src="/img/@(imageIndex).jpg" />
@@ -50,5 +54,6 @@
     <label>Developer: </label><TelerikSwitch @bind-Value="@devMode"></TelerikSwitch>
 </div>
 
-<TelerikNotification @ref="ErrorNotification" VerticalPosition="NotificationVerticalPosition.Top" HorizontalPosition="NotificationHorizontalPosition.Right" />
+    <TelerikNotification @ref="ErrorNotification" VerticalPosition="NotificationVerticalPosition.Top" HorizontalPosition="NotificationHorizontalPosition.Right" />
+}
 
